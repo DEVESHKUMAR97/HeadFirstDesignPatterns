@@ -1,4 +1,4 @@
-package ch1strategypattern.withoutstrategypattern;
+package com.deveshkumar.ch1strategypattern.withoutstrategypattern.ducks;
 
 public abstract class Duck {
 

@@ -1,6 +1,4 @@
-package ch1strategypattern.withoutstrategypattern.ducks;
-
-import ch1strategypattern.withoutstrategypattern.Duck;
+package com.deveshkumar.ch1strategypattern.withoutstrategypattern.ducks;
 
 public class RedheadDuck extends Duck {
     @Override

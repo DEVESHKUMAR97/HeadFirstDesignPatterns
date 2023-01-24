@@ -1,8 +1,9 @@
-package ch1strategypattern.withoutstrategypattern;
+package com.deveshkumar.ch1strategypattern.withoutstrategypattern;
 
-import ch1strategypattern.withoutstrategypattern.ducks.MallardDuck;
-import ch1strategypattern.withoutstrategypattern.ducks.RedheadDuck;
-import ch1strategypattern.withoutstrategypattern.ducks.RubberDuck;
+import com.deveshkumar.ch1strategypattern.withoutstrategypattern.ducks.Duck;
+import com.deveshkumar.ch1strategypattern.withoutstrategypattern.ducks.MallardDuck;
+import com.deveshkumar.ch1strategypattern.withoutstrategypattern.ducks.RedheadDuck;
+import com.deveshkumar.ch1strategypattern.withoutstrategypattern.ducks.RubberDuck;
 
 public class MiniDuckSimulator {
     public static void main(String[] args) {
