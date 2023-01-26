@@ -11,27 +11,20 @@ import com.deveshkumar.ch2observerpattern.manytomanyoberserpattern.subjects.Weat
  */
 public class HeatIndexDisplay implements IObserver, IDisplayElement {
     private float heatIndex = 0.0f;
-    private WeatherData weatherData;
-
     public HeatIndexDisplay() {
     }
 
     public HeatIndexDisplay(WeatherData weatherData) {
-        this.weatherData = weatherData;
         weatherData.registerObserver(this);
     }
 
-    public void setWeatherData(WeatherData weatherData) {
-        this.weatherData = weatherData;
-    }
-
     @Override
-    public void update() {
-        // note: weatherData must be initialized(or set) in the observer
-        // here we have not initialized the weatherData via constructor.
-        // So, we have to set it while adding this observer to the subject list
-        heatIndex = computeHeatIndex(weatherData.getTemperature(), weatherData.getHumidity());
-        display();
+    public void update(ISubject subject) {
+        if (subject instanceof WeatherData) {
+            WeatherData weatherData = (WeatherData) subject;
+            heatIndex = computeHeatIndex(weatherData.getTemperature(), weatherData.getHumidity());
+            display();
+        }
     }
 
     @Override
@@ -49,11 +42,5 @@ public class HeatIndexDisplay implements IObserver, IDisplayElement {
                 0.000000000843296 * (t * t * rh * rh * rh)) -
                 (0.0000000000481975 * (t * t * t * rh * rh * rh)));
         return index;
-    }
-
-
-    @Override
-    public void setSubject(ISubject subject) {
-        this.weatherData = (WeatherData) subject;
     }
 }

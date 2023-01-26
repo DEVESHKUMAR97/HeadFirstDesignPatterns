@@ -28,7 +28,6 @@ public class WeatherData implements ISubject {
         }
         if (!observers.contains(observer)) {
             observers.add(observer);
-            observer.setSubject(this); // we are also adding subject to the observer
         }
 
     }
@@ -41,7 +40,7 @@ public class WeatherData implements ISubject {
     @Override
     public void notifyObservers() {
         for(IObserver observer : observers) {
-            observer.update();
+            observer.update(this);
         }
     }
 

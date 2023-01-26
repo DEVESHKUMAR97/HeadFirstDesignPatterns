@@ -20,13 +20,7 @@ public interface IObserver {
      * application calls an {@code Observable} object's
      * {@code notifyObservers} method to have all the object's
      * observers notified of the change.
-     */
-    public void update();
-
-    /**
-     * This method is called to set subject in the observer
-     * while adding this observer to a subject list.
      * @param subject
      */
-    public void setSubject(ISubject subject);
+    public void update(ISubject subject);
 }

@@ -12,19 +12,19 @@ import com.deveshkumar.ch2observerpattern.manytomanyoberserpattern.subjects.Weat
 public class ForecastDisplay implements IObserver, IDisplayElement {
     private float currentPressure = 29.92f;
     private float lastPressure;
-    private WeatherData weatherData;
 
     public ForecastDisplay(WeatherData weatherData) {
-        this.weatherData = weatherData;
         weatherData.registerObserver(this);
     }
 
     @Override
-    public void update() {
-        lastPressure = currentPressure;
-        currentPressure = weatherData.getPressure(); // only fetching pressure data/state
-        // note: weatherData must be initialized(or set) in the observer
-        display();
+    public void update(ISubject subject) {
+        if (subject instanceof WeatherData) {
+            WeatherData weatherData = (WeatherData) subject;
+            lastPressure = currentPressure;
+            currentPressure = weatherData.getPressure(); // only fetching pressure data/state
+            display();
+        }
     }
 
     @Override
@@ -37,10 +37,5 @@ public class ForecastDisplay implements IObserver, IDisplayElement {
         } else {
             System.out.println("Watch out for cooler, rainy weather");
         }
-    }
-
-    @Override
-    public void setSubject(ISubject subject) {
-        this.weatherData = (WeatherData) subject;
     }
 }
