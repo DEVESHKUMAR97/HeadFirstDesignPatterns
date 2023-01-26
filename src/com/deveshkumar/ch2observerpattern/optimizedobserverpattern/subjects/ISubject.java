@@ -1,6 +1,7 @@
 package com.deveshkumar.ch2observerpattern.optimizedobserverpattern.subjects;
 
-import com.deveshkumar.ch2observerpattern.optimizedobserverpattern.observers.IObserver; /**
+import com.deveshkumar.ch2observerpattern.optimizedobserverpattern.observers.IObserver;
+/**
  * @author : Devesh Kumar
  * @project : HeadFirstDesignPatterns
  * @date : 25-01-2023

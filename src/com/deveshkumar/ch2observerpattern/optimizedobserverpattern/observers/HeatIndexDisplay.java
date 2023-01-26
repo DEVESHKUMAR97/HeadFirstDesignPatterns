@@ -1,5 +1,6 @@
 package com.deveshkumar.ch2observerpattern.optimizedobserverpattern.observers;
 
+import com.deveshkumar.ch2observerpattern.optimizedobserverpattern.subjects.ISubject;
 import com.deveshkumar.ch2observerpattern.optimizedobserverpattern.subjects.WeatherData;
 
 /**
@@ -20,9 +21,16 @@ public class HeatIndexDisplay implements IObserver, IDisplayElement {
         weatherData.registerObserver(this);
     }
 
+    public void setWeatherData(WeatherData weatherData) {
+        this.weatherData = weatherData;
+    }
+
     @Override
-    public void update(float temperature, float humidity, float pressure) {
-        heatIndex = computeHeatIndex(temperature, humidity);
+    public void update() {
+        // note: weatherData must be initialized(or set) in the observer
+        // here we have not initialized the weatherData via constructor.
+        // So, we have to set it while adding this observer to the subject list
+        heatIndex = computeHeatIndex(weatherData.getTemperature(), weatherData.getHumidity());
         display();
     }
 
@@ -41,5 +49,11 @@ public class HeatIndexDisplay implements IObserver, IDisplayElement {
                 0.000000000843296 * (t * t * rh * rh * rh)) -
                 (0.0000000000481975 * (t * t * t * rh * rh * rh)));
         return index;
+    }
+
+
+    @Override
+    public void setSubject(ISubject subject) {
+        this.weatherData = (WeatherData) subject;
     }
 }

@@ -38,6 +38,9 @@ public class WeatherStation {
         // note this time using constructor to register. So, headIndex observer does not contain subject reference
         HeatIndexDisplay heatIndexDisplay = new HeatIndexDisplay();
         weatherData.registerObserver(heatIndexDisplay);
+//        // NOTE: here I need to set subject inside heatIndexObserver explicitly to use in the update method
+//        // Or we can add this every time in the register method.
+//        heatIndexDisplay.setWeatherData(weatherData);
         weatherData.setMeasurements(64, 92, 28.0f);
         System.out.println();
 

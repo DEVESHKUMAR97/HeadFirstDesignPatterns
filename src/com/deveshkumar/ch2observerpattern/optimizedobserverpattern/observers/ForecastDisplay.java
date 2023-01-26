@@ -1,5 +1,6 @@
 package com.deveshkumar.ch2observerpattern.optimizedobserverpattern.observers;
 
+import com.deveshkumar.ch2observerpattern.optimizedobserverpattern.subjects.ISubject;
 import com.deveshkumar.ch2observerpattern.optimizedobserverpattern.subjects.WeatherData;
 
 /**
@@ -19,9 +20,10 @@ public class ForecastDisplay implements IObserver, IDisplayElement {
     }
 
     @Override
-    public void update(float temperature, float humidity, float pressure) {
+    public void update() {
         lastPressure = currentPressure;
-        currentPressure = pressure;
+        currentPressure = weatherData.getPressure(); // only fetching pressure data/state
+        // note: weatherData must be initialized(or set) in the observer
         display();
     }
 
@@ -35,5 +37,10 @@ public class ForecastDisplay implements IObserver, IDisplayElement {
         } else {
             System.out.println("Watch out for cooler, rainy weather");
         }
+    }
+
+    @Override
+    public void setSubject(ISubject subject) {
+        this.weatherData = (WeatherData) subject;
     }
 }

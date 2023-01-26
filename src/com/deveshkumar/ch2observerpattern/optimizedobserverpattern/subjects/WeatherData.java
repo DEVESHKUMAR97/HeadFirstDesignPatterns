@@ -28,6 +28,7 @@ public class WeatherData implements ISubject {
         }
         if (!observers.contains(observer)) {
             observers.add(observer);
+            observer.setSubject(this); // we are also adding subject to the observer
         }
 
     }
@@ -40,7 +41,7 @@ public class WeatherData implements ISubject {
     @Override
     public void notifyObservers() {
         for(IObserver observer : observers) {
-            observer.update(temperature, humidity, pressure);
+            observer.update();
         }
     }
 
@@ -57,5 +58,18 @@ public class WeatherData implements ISubject {
         this.humidity = humidity;
         this.pressure = pressure;
         measurementsChanged();
+    }
+
+    // Adding getters, now observers can fetch only data in which they are interested in.
+    public float getTemperature() {
+        return temperature;
+    }
+
+    public float getHumidity() {
+        return humidity;
+    }
+
+    public float getPressure() {
+        return pressure;
     }
 }

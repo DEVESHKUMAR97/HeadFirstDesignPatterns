@@ -1,5 +1,8 @@
 package com.deveshkumar.ch2observerpattern.optimizedobserverpattern.observers;
 
+import com.deveshkumar.ch2observerpattern.optimizedobserverpattern.subjects.ISubject;
+
+
 /**
  * @author : Devesh Kumar
  * @project : HeadFirstDesignPatterns
@@ -18,5 +21,12 @@ public interface IObserver {
      * {@code notifyObservers} method to have all the object's
      * observers notified of the change.
      */
-    public void update(float temperature, float humidity, float pressure);
+    public void update();
+
+    /**
+     * This method is called to set subject in the observer
+     * while adding this observer to a subject list.
+     * @param subject
+     */
+    public void setSubject(ISubject subject);
 }

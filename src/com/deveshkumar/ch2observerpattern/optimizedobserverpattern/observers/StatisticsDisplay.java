@@ -1,5 +1,6 @@
 package com.deveshkumar.ch2observerpattern.optimizedobserverpattern.observers;
 
+import com.deveshkumar.ch2observerpattern.optimizedobserverpattern.subjects.ISubject;
 import com.deveshkumar.ch2observerpattern.optimizedobserverpattern.subjects.WeatherData;
 
 /**
@@ -21,7 +22,10 @@ public class StatisticsDisplay implements IObserver, IDisplayElement {
     }
 
     @Override
-    public void update(float temperature, float humidity, float pressure) {
+    public void update() {
+        // note: weatherData must be initialized(or set) in the observer
+        float temperature = weatherData.getTemperature(); // only fetching temperature data
+
         // this observer only using temperature, but subject is giving all 3 parameters.
         // This shows that the subject doesn't know or care about, how observer is using these parameters.
         if(temperature > maxTemperature) maxTemperature = temperature;
@@ -37,5 +41,10 @@ public class StatisticsDisplay implements IObserver, IDisplayElement {
                 temperatureSum / numReadings + "/" +
                 maxTemperature + "/" +
                 minTemperature);
+    }
+
+    @Override
+    public void setSubject(ISubject subject) {
+        this.weatherData = (WeatherData) subject;
     }
 }
