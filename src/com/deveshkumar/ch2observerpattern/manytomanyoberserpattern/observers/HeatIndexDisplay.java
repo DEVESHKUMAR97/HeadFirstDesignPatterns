@@ -23,13 +23,15 @@ public class HeatIndexDisplay implements IObserver, IDisplayElement {
         if (subject instanceof WeatherData) {
             WeatherData weatherData = (WeatherData) subject;
             heatIndex = computeHeatIndex(weatherData.getTemperature(), weatherData.getHumidity());
-            display();
         }
+        display(subject);
     }
 
     @Override
-    public void display() {
-        System.out.println("Heat index is " + heatIndex);
+    public void display(ISubject subject) {
+        if (subject instanceof WeatherData) {
+            System.out.println("Heat index is " + heatIndex);
+        }
     }
 
     private float computeHeatIndex(float t, float rh) {

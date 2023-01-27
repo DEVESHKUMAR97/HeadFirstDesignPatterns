@@ -14,6 +14,10 @@ public class StatisticsDisplay implements IObserver, IDisplayElement {
     private float minTemperature = 200;
     private float temperatureSum = 0.0f;
     private int numReadings = 0;
+
+    public StatisticsDisplay() {
+    }
+
     public StatisticsDisplay(WeatherData weatherData) {
         weatherData.registerObserver(this);
     }
@@ -30,15 +34,17 @@ public class StatisticsDisplay implements IObserver, IDisplayElement {
             if (temperature < minTemperature) minTemperature = temperature;
             temperatureSum += temperature;
             numReadings += 1;
-            display();
         }
+        display(subject);
     }
 
     @Override
-    public void display() {
-        System.out.println("Avg/Max/Min temperature = " +
-                temperatureSum / numReadings + "/" +
-                maxTemperature + "/" +
-                minTemperature);
+    public void display(ISubject subject) {
+        if (subject instanceof WeatherData) {
+            System.out.println("Avg/Max/Min temperature = " +
+                    temperatureSum / numReadings + "/" +
+                    maxTemperature + "/" +
+                    minTemperature);
+        }
     }
 }
