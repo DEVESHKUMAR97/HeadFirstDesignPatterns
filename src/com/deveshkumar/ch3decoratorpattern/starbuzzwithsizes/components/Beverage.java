@@ -15,6 +15,15 @@ package com.deveshkumar.ch3decoratorpattern.starbuzzwithsizes.components;
  *
  */
 public abstract class Beverage {
+
+    // Added size enum and size instance variable
+    public enum Size {TALL, GRANDE, VENTI};
+    private Size size = Size.TALL;
+    // We can also add this size intance variable to condiment Decorator class also
+    // instead of using here
+    // because condiments prizes are only changing based upon the size
+
+
     /**
      * the description instance is set in each subclass and holds the description of the beverage.
      */
@@ -37,5 +46,13 @@ public abstract class Beverage {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public void setSize(Size size) {
+        this.size = size;
     }
 }
