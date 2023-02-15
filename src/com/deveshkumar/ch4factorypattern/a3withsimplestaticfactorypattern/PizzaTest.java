@@ -10,7 +10,7 @@ import com.deveshkumar.ch4factorypattern.pizzas.Pizza;
  */
 public class PizzaTest {
     public static void main(String[] args) {
-        PizzaStore pizzaStore = new PizzaStore(new SimplePizzaFactory());
+        PizzaStore pizzaStore = new PizzaStore();
         Pizza pizza = pizzaStore.orderPizza("cheese");
         System.out.println("We ordered a " + pizza.getName());
         System.out.println(pizza);

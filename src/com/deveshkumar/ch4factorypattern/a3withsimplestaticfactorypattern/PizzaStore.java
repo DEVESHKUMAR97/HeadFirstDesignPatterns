@@ -10,21 +10,15 @@ import com.deveshkumar.ch4factorypattern.pizzas.Pizza;
  */
 
 /**
- * This is the client which request factory(SimplePizzaFactory) to create product(Pizza) for it.
+ * This is the client which request factory(SimpleStaticPizzaFactory) to create product(Pizza) for it.
  */
 public class PizzaStore {
-    private SimplePizzaFactory simplePizzaFactory;
-
-    public PizzaStore(SimplePizzaFactory simplePizzaFactory) {
-        this.simplePizzaFactory = simplePizzaFactory;
-    }
-
     public Pizza orderPizza(String type) {
         // we have separated and encapsulated the things which were varied
-        // inside the simplePizzaFactory.
+        // inside the simpleStaticPizzaFactory.
         // We are now not creating concrete objects inside the client
         // and client has delegated this job to factory.
-        Pizza pizza = simplePizzaFactory.createPizza(type);
+        Pizza pizza = SimpleStaticPizzaFactory.createPizza(type);
 
 
         // Things that remains the same
