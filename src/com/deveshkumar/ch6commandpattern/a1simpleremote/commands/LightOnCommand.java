@@ -1,6 +1,6 @@
 package com.deveshkumar.ch6commandpattern.a1simpleremote.commands;
 
-import com.deveshkumar.ch6commandpattern.a1simpleremote.receivers.Light;
+import com.deveshkumar.ch6commandpattern.receivers.Light;
 
 /**
  * @author : Devesh Kumar

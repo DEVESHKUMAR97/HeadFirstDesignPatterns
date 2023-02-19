@@ -1,4 +1,4 @@
-package com.deveshkumar.ch6commandpattern.a1simpleremote.receivers;
+package com.deveshkumar.ch6commandpattern.receivers;
 
 /**
  * @author : Devesh Kumar
@@ -12,11 +12,17 @@ package com.deveshkumar.ch6commandpattern.a1simpleremote.receivers;
  * how to actually do actions(like turn on/off the light).
  */
 public class Light {
+    private String location = "";
+
+    public Light(String location) {
+        this.location = location;
+    }
+
     public void on() {
-        System.out.println("Light is On");
+        System.out.println(location + " light is On");
     }
 
     public void off() {
-        System.out.println("Light is Off");
+        System.out.println(location + " light is Off");
     }
 }

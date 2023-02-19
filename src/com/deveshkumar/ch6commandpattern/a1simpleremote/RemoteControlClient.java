@@ -1,17 +1,17 @@
 package com.deveshkumar.ch6commandpattern.a1simpleremote;
 
+import com.deveshkumar.ch6commandpattern.a1simpleremote.commands.Command;
+import com.deveshkumar.ch6commandpattern.a1simpleremote.commands.GarageDoorOpenCommand;
+import com.deveshkumar.ch6commandpattern.a1simpleremote.commands.LightOnCommand;
+import com.deveshkumar.ch6commandpattern.receivers.GarageDoor;
+import com.deveshkumar.ch6commandpattern.receivers.Light;
+
 /**
  * @author : Devesh Kumar
  * @project : HeadFirstDesignPatterns
  * @date : 19-02-2023
  * @time : 11:44 pm
  */
-
-import com.deveshkumar.ch6commandpattern.a1simpleremote.commands.Command;
-import com.deveshkumar.ch6commandpattern.a1simpleremote.commands.GarageDoorOpenCommand;
-import com.deveshkumar.ch6commandpattern.a1simpleremote.commands.LightOnCommand;
-import com.deveshkumar.ch6commandpattern.a1simpleremote.receivers.GarageDoor;
-import com.deveshkumar.ch6commandpattern.a1simpleremote.receivers.Light;
 
 /**
  * This is the client(Customers/Users) who creates the command object
@@ -25,8 +25,8 @@ public class RemoteControlClient {
         SimpleRemoteControl remoteControl = new SimpleRemoteControl();
 
         // 1.2 Creating the Vendor class objects
-        Light light = new Light();
-        GarageDoor garageDoor = new GarageDoor();
+        Light light = new Light("Living Room");
+        GarageDoor garageDoor = new GarageDoor("Main house");
 
 
         // 2. Creating the command objects
