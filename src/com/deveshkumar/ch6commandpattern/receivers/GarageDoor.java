@@ -29,7 +29,7 @@ public class GarageDoor {
         System.out.println(location + " garage Door light is on");
     }
 
-    public void lightff() {
+    public void lightOff() {
         System.out.println(location + " garage Door light is off");
     }
 }
