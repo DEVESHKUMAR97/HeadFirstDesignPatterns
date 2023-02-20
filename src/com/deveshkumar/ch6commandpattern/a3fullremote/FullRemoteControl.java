@@ -40,11 +40,15 @@ public class FullRemoteControl {
     }
 
     public void onButtonWasPushed(int slot) {
+        System.out.println("--- On button was pushed at slot " + slot + " ---");
         onCommands[slot].execute();
+        System.out.println();
     }
 
     public void offButtonWasPushed(int slot) {
+        System.out.println("--- Off button was pushed at slot " + slot + " ---");
         offCommands[slot].execute();
+        System.out.println();
     }
 
     public String toString() {
