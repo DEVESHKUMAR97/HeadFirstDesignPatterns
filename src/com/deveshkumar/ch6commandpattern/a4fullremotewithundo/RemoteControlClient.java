@@ -72,20 +72,25 @@ public class RemoteControlClient {
 
 
         // 4. Pressing the buttons on remote to invoke the execute method of the command objects
+        remoteControl.undoButtonWasPushed();
         remoteControl.onButtonWasPushed(0);
         remoteControl.offButtonWasPushed(0);
         remoteControl.onButtonWasPushed(1);
+        remoteControl.undoButtonWasPushed();
         remoteControl.offButtonWasPushed(1);
         remoteControl.onButtonWasPushed(2);
         remoteControl.offButtonWasPushed(2);
+        remoteControl.undoButtonWasPushed();
         remoteControl.onButtonWasPushed(3);
         remoteControl.offButtonWasPushed(3);
         remoteControl.onButtonWasPushed(4);
+        remoteControl.undoButtonWasPushed();
         remoteControl.offButtonWasPushed(4);
         remoteControl.onButtonWasPushed(5);
         remoteControl.offButtonWasPushed(5);
         remoteControl.onButtonWasPushed(6);
         remoteControl.offButtonWasPushed(6);
+        remoteControl.undoButtonWasPushed();
 
         // 5. Mapping another command objects to the same of remote control
         remoteControl.setCommand(1, partyOnCommand, partyOffCommand);
@@ -95,21 +100,28 @@ public class RemoteControlClient {
 
         System.out.println(remoteControl);
 
-        // 6. Again, pressing the button on remote to invoke the execute method of the command object(GarageDoorOpenCommand)
+        // 6. Again, pressing the button on remote to invoke the execute method of the command object
+        remoteControl.undoButtonWasPushed();
         remoteControl.onButtonWasPushed(0);
+        remoteControl.undoButtonWasPushed();
         remoteControl.offButtonWasPushed(0);
         remoteControl.onButtonWasPushed(1);
         remoteControl.offButtonWasPushed(1);
         remoteControl.onButtonWasPushed(2);
         remoteControl.offButtonWasPushed(2);
+        remoteControl.undoButtonWasPushed();
         remoteControl.onButtonWasPushed(3);
         remoteControl.offButtonWasPushed(3);
         remoteControl.onButtonWasPushed(4);
         remoteControl.offButtonWasPushed(4);
+        remoteControl.undoButtonWasPushed();
+        remoteControl.undoButtonWasPushed();
+        remoteControl.undoButtonWasPushed();
         remoteControl.onButtonWasPushed(5);
         remoteControl.offButtonWasPushed(5);
         remoteControl.onButtonWasPushed(6);
         remoteControl.offButtonWasPushed(6);
+        remoteControl.undoButtonWasPushed();
 
 
     }

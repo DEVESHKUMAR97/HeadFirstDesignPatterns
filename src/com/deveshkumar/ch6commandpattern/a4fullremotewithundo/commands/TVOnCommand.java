@@ -20,4 +20,9 @@ public class TVOnCommand implements Command {
         tv.on();
         tv.setInputChannel();
     }
+
+    @Override
+    public void undo() {
+        tv.off();
+    }
 }

@@ -13,4 +13,6 @@ package com.deveshkumar.ch6commandpattern.a4fullremotewithundo.commands;
  */
 public interface Command {
     public void execute();
+
+    public void undo();
 }

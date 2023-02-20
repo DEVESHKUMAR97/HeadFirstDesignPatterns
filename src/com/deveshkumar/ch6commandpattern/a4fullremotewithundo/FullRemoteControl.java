@@ -23,6 +23,7 @@ import com.deveshkumar.ch6commandpattern.a4fullremotewithundo.commands.NoCommand
 public class FullRemoteControl {
     Command[] onCommands;
     Command[] offCommands;
+    Command undoCommand;
 
     public FullRemoteControl(int numberOfSlots) {
         onCommands = new Command[numberOfSlots];
@@ -32,6 +33,7 @@ public class FullRemoteControl {
             onCommands[i] = noCommand;
             offCommands[i] = noCommand;
         }
+        undoCommand = noCommand;
     }
 
     public void setCommand(int slot, Command onCommand, Command offCommand) {
@@ -42,12 +44,20 @@ public class FullRemoteControl {
     public void onButtonWasPushed(int slot) {
         System.out.println("--- On button was pushed at slot " + slot + " ---");
         onCommands[slot].execute();
+        undoCommand = onCommands[slot];
         System.out.println();
     }
 
     public void offButtonWasPushed(int slot) {
         System.out.println("--- Off button was pushed at slot " + slot + " ---");
         offCommands[slot].execute();
+        undoCommand = offCommands[slot];
+        System.out.println();
+    }
+
+    public void undoButtonWasPushed() {
+        System.out.println("--- Undo button was pushed ---");
+        undoCommand.undo();
         System.out.println();
     }
 
@@ -58,6 +68,7 @@ public class FullRemoteControl {
             stringBuff.append("[slot " + i + "] " + onCommands[i].getClass().getSimpleName()
                     + "    " + offCommands[i].getClass().getSimpleName() + "\n");
         }
+        stringBuff.append("[undo] " + undoCommand.getClass().getSimpleName() + "\n");
         return stringBuff.toString();
     }
 }

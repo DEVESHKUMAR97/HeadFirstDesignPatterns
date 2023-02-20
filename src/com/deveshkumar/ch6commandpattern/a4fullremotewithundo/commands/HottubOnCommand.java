@@ -22,4 +22,11 @@ public class HottubOnCommand implements Command {
         hottub.jetsOn();
         hottub.circulate();
     }
+
+    @Override
+    public void undo() {
+        hottub.jetsOff();
+        hottub.setTemperature(98);
+        hottub.off();
+    }
 }
